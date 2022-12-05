@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package com.demo;
+
+message Product {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  int32 quantity = 4;
+  float price = 5;
+  string image = 6;
+  bool onSale = 7;
+}
+
+message MutationResponse {
+  string message = 1;
+}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+service ProductService {
+  rpc getProduct(Product) returns(Product){}
+  rpc addProduct(Product) returns(MutationResponse){}
+  rpc updateProduct(Product) returns(MutationResponse){}
+  rpc deleteProduct(DeleteRequest) returns (MutationResponse){}
+}

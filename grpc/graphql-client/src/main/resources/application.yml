@@ -1,0 +1,16 @@
+server:
+  port: 9002
+grpc:
+  client:
+    product-grpc-client:
+      address: static://localhost:9000
+      negotiationType: plaintext
+spring:
+  application:
+    name: GRPC-CLIENT
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:mysql://localhost:3306/graphql?useSSL=false&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:Root@9641}
+    hikari:
+      maximum-pool-size: 10
